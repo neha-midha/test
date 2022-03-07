@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Accounts
+  description: Manage the accounts
+  version: 1.0.0
+servers:
+  - url: http://localhost/accounts
+paths:
+  /createAccount:
+    post:
+      summary: Create an Account and registered it to an user
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+
+              type: object
+              properties:
+                userId:
+                  type: integer
+                  format: int32
+                account:
+                  type: 'Account'
+                  format: '#/components/schemas/Account'
+
+      responses:
+        '200':
+          description: Operation success
+        503:
+          $ref: '#/components/schemas/Error'
+  /addCreditsToAccount:
+    post:
+      summary: Add Credits To Account.
+      description: Optional extended description in CommonMark or HTML.
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: integer
+                  format: int32
+                credits:
+                  type: number
+                  format: double
+      responses:
+        '200': # status code
+          description: Operation success
+  /associateUserToAccount:
+    post:
+      summary: Associate User With An Account
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: integer
+                  format: int32
+                userId:
+                  type: integer
+                  format: int32
+      responses:
+        '200':
+          description: Operation success
+  /linkAccountToMercadoPago:
+    post:
+      summary: Link account to mercado pago
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: integer
+                  format: int32
+                mercadoPagoId:
+                  type: integer
+                  format: int32
+      responses:
+        '200':
+          description: Operation success
+  /buyCreditsMercadoPago:
+    post:
+      summary: Buy credits in Mercado Pago
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: integer
+                  format: int32
+                credits:
+                  type: number
+                  format: double
+      responses:
+        '200':
+          description: Operation success
+components:
+  schemas:
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Account:
+      type: object
+      properties:
+        balance:
+          type: double
+        active:
+          type: boolean
+  responses:
+    Error:
+      description: Error accessing the service consistent with http status code
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InvalidInput:
+      description: Invalid input
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Unable to find resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

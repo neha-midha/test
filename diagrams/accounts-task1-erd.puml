@@ -1,0 +1,23 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam monochrome true
+
+left to right direction
+
+title "Accounts Microservice - Domain model" 
+
+entity Account {
+  id: integer
+  balance: integer
+  mercado_pago_account: string
+  active: boolean
+}
+
+entity Accounts_Users {
+  user_id: integer
+  account_id: integer
+}
+
+Account -- AccountsUsers
+
+@enduml

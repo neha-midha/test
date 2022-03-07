@@ -1,0 +1,35 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam monochrome true
+
+left to right direction
+
+title "Accounts Microservice - High-level Design" 
+
+package Accounts {
+component "Add Credits To Account" as addCreditsToAccount #orange
+component "Associate User With An Account" as associateUserToAccount #orange
+component "Create An Account" as createAccount #orange
+component "Link Account To Mercado Pago" as linkAccountToMercadoPago #orange
+component "Buy Credits From Mercado Pago" as buyCreditsMercadoPago #orange
+database "Account" as account
+}
+
+interface endpoint
+
+endpoint -- Accounts
+
+component "Mercado Pago" as mercadopago #cyan
+component "UserManagement" as usermanagement #cyan
+
+account --- addCreditsToAccount
+account --- associateUserToAccount
+account --- createAccount
+account --- buyCreditsMercadoPago
+account --- linkAccountToMercadoPago
+mercadopago --- buyCreditsMercadoPago
+mercadopago --- linkAccountToMercadoPago
+usermanagement --- createAccount
+usermanagement --- associateUserToAccount
+
+@enduml
