@@ -1,0 +1,29 @@
+openapi: "3.0.2"
+info:
+  title: Mercado Pago
+  version: "1.0"
+servers:
+  - url: http://localhost/mercadopago/
+paths:
+  /findUserAccount/{userId}:
+    get:
+      summary: Find an account for a redistered user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: id of the user
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '404':
+          description: A user with the specified ID was not found.
