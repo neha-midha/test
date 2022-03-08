@@ -53,7 +53,7 @@ You should carry out the task according to the following instructions:
 
 1. Fork and clone this repo.
 2. Execute the Maven scripts to generate a Java code skeleton for the microservice and the database schema.
-3. **Implement the functions required by the microservice**. While doing your work, please keep track of your time using this [spreadsheet](https://docs.google.com/spreadsheets/d/1hTR1mpq4af1iLRAn3lRxGu7C9V3kX4OfMGLuhU690yE/edit?usp=sharing).
+3. **Implement the functions required by the microservice**.
 4. Execute the tests provided for the microservice, along with any additional tests you would like to include.
 5. When done, submit (push) all your artifacts to the forked repo.
 6. After your final submission, please complete the following [questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSc2dunMEOzIFLQZe9a7LBaQ8jVOx33jIGChISkACr2VCsVjHg/viewform).
