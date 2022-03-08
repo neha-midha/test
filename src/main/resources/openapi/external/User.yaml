@@ -1,0 +1,47 @@
+openapi: "3.0.2"
+info:
+  title: User Management
+  version: "1.0"
+servers:
+  - url: http://localhost/user
+paths:
+  /registerUser:
+    post:
+      summary: Register a User in the system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+  /findUserById/{userId}:
+    get:
+      summary: Find a user registered in the system by the id
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: id of the user
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        preferredPayment:
+          type: string
