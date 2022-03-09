@@ -10,17 +10,19 @@ Additionally, we include the following functional tests for the microservice:
 
 [RESTest package](/tests/restest-1.2.0-test1.zip)
 
-1. Go to **/tests**, unzip file, and change to **restest-1.2.0-test1** directory
+
+1. Go to `/tests`, unzip file, and change to `restest-1.2.0-test1` directory
 2. Download [this file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it (this is pretty heavy file and contains basically a release of [this open source project](https://github.com/isa-group/RESTest))
-3. Run script **./restest.sh** (app must be running in port **8080**)
+3. Run script `./restest.sh` (app must be running in port `8080`)
 4. See reports in target directory
 5. See reports in browser 
-
-    **cd target/allure-reports/account** 
+```
+    cd target/allure-reports/account
     
-    **python -m http.server 8081**
+    python -m http.server 8081
     
-    open **http://localhost:8081/** in browser
+    open http://localhost:8081/ in browser
+```
 
 ## Context
 
