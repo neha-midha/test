@@ -1,16 +1,16 @@
 # Task #1: Accounts Microservice
 
-The mission is to implement a java microservice that provide the functionality described by the OpenAPI spec below. Take in account you may need python installed to run some scripts.
+The mission is to implement a java microservice that provide the functionality described by the OpenAPI spec below. Take in account you may need python installed to run some scripts. This microservice is part of a system for users to rent scooters in a city, like Paris, France.
 
-This microservice is part of a system for users to rent scooters in a city, like Lima, Peru.
+The code challenge is part of a research and any feedback is approciated.
 
 ## OpenAPI Specification
 
-[Specification](https://github.com/talent-cloud/test-1/blob/main/src/main/resources/openapi/Accounts.yaml)
+[Specification](/main/src/main/resources/openapi/Accounts.yaml)
 
 Additionally, we include the following functional tests for the microservice:
 
-[RESTest package](https://github.com/talent-cloud/test-1/blob/main/tests/restest-1.2.0-test1.zip)
+[RESTest package](/main/tests/restest-1.2.0-test1.zip)
 
 1. Go to **/tests**, unzip file, and change to **restest-1.2.0-test1** directory
 2. Download [jar file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it
@@ -41,11 +41,11 @@ The microservice is a backend service that gives support to the following user s
 
 A high-level design of the endpoint, including its internal functions (i.e., operations) and repository, is provided below:
 
-![](https://github.com/talent-cloud/test-1/blob/main/diagrams/accounts-task1-design.png)
+![](/main/diagrams/accounts-task1-design.png)
 
 The data model (i.e., entities) for the repository is given below:
 
-![](https://github.com/talent-cloud/test-1/blob/main/diagrams/accounts-task1-erd.png)
+![](/main/diagrams/accounts-task1-erd.png)
 
 ## Steps
 
@@ -67,4 +67,4 @@ You must consider the following conditions when submitting the task:
 
 ## Contact
 
-In case you might have questions, drop us a line to <talentcloud@globant.com>.
+In case you might have questions, drop us a line to <tcloud.research@gmail.com>.
