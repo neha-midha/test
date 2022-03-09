@@ -13,7 +13,7 @@ Additionally, we include the following functional tests for the microservice:
 [RESTest package](/tests/restest-1.2.0-test1.zip)
 
 1. Go to **/tests**, unzip file, and change to **restest-1.2.0-test1** directory
-2. Download [jar file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it
+2. Download [this file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it
 3. Run script **./restest.sh** (app must be running in port **8080**)
 4. See reports in target directory
 5. See reports in browser 
