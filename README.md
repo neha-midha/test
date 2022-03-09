@@ -1,8 +1,6 @@
 # Task #1: Accounts Microservice
 
-The mission is to implement a java microservice that provide the functionality described by the OpenAPI spec below. Take in account you may need python installed to run some scripts. This microservice is part of a system for users to rent scooters in a city, like Paris, France.
-
-The code challenge is part of a research and any feedback is approciated.
+The challenge is to implement a java microservice that provide the functionality described by the OpenAPI spec below. Take in account you may need python installed to run some scripts. This microservice is part of a system for users to rent scooters in a city, like Paris, France. The code challenge itselft is part of a research and any feedback will be approciated.
 
 ## OpenAPI Specification
 
@@ -13,7 +11,7 @@ Additionally, we include the following functional tests for the microservice:
 [RESTest package](/tests/restest-1.2.0-test1.zip)
 
 1. Go to **/tests**, unzip file, and change to **restest-1.2.0-test1** directory
-2. Download [this file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it
+2. Download [this file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it (this is pretty heavy file and contains basically a release of [this open source project](https://github.com/isa-group/RESTest))
 3. Run script **./restest.sh** (app must be running in port **8080**)
 4. See reports in target directory
 5. See reports in browser 
@@ -67,4 +65,4 @@ You must consider the following conditions when submitting the task:
 
 ## Contact
 
-In case you might have questions, drop us a line to <tcloud.research@gmail.com>.
+In case you might have questions, drop us a line to <tcloud.research@gmail.com>. Because we are executing this challenge with several developers please add all the details that you need in order to identify you and the question context. Thanks!
