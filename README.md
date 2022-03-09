@@ -6,11 +6,11 @@ The code challenge is part of a research and any feedback is approciated.
 
 ## OpenAPI Specification
 
-[Specification](/main/src/main/resources/openapi/Accounts.yaml)
+[Specification](/src/main/resources/openapi/Accounts.yaml)
 
 Additionally, we include the following functional tests for the microservice:
 
-[RESTest package](/main/tests/restest-1.2.0-test1.zip)
+[RESTest package](/tests/restest-1.2.0-test1.zip)
 
 1. Go to **/tests**, unzip file, and change to **restest-1.2.0-test1** directory
 2. Download [jar file](https://github.com/isa-group/RESTest/releases/download/restest-1.2.0/restest-1.2.0.zip) to directory and unzip it
@@ -41,11 +41,11 @@ The microservice is a backend service that gives support to the following user s
 
 A high-level design of the endpoint, including its internal functions (i.e., operations) and repository, is provided below:
 
-![](/main/diagrams/accounts-task1-design.png)
+![](/diagrams/accounts-task1-design.png)
 
 The data model (i.e., entities) for the repository is given below:
 
-![](/main/diagrams/accounts-task1-erd.png)
+![](/diagrams/accounts-task1-erd.png)
 
 ## Steps
 
