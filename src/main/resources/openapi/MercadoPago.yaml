@@ -27,3 +27,24 @@ paths:
                 format: int64
         '404':
           description: A user with the specified ID was not found.
+  /buyCredits:
+    post:
+      summary: Buy credits in Mercado Pago
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mercadoPagoAccountId:
+                  type: integer
+                  format: int32
+                credits:
+                  type: number
+                  format: double
+      responses:
+        '200':
+          description: Operation success
+        '404':
+          description: Account not found
