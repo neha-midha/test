@@ -2,6 +2,8 @@
 
 The challenge is to implement a java microservice that provide the functionality described by the OpenAPI spec below. Take in account you may need python installed to run some scripts. This microservice is part of a system for users to rent scooters in a city, like Paris, France. The code challenge itselft is part of a research and any feedback will be approciated.
 
+**Note**: please use the auto-generated code as much you can and add unit test for your code in order to reach the 80%.
+
 ## OpenAPI Specification
 
 [Specification](/src/main/resources/openapi/Accounts.yaml)
