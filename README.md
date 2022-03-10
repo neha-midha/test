@@ -62,7 +62,7 @@ You should carry out the task according to the following instructions:
 
 You must consider the following conditions when submitting the task:
 - Check that all the tests for the microservice passed (successfully)
-- Achieve an 80% of code coverage
+- Achieve an 80% of code coverage (we will check the coverage using `mvn test`).
 - Write clean and well-structured code, whenever possible.
 - All the parts that can be variables (eg: ip of external services) must be in a configuration file.
 - If needed, include a **readme** file with further instructions to build and execute the microservice and its associated tests.
