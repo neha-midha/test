@@ -69,6 +69,31 @@ You must consider the following conditions when submitting the task:
 - All the parts that can be variables (eg: ip of external services) must be in a configuration file.
 - If needed, include a **readme** file with further instructions to build and execute the microservice and its associated tests.
 
+## Pre-requisite to run the AccountsApplication (One-time-setup)
+- install mysql database server
+- create a database `accounts`
+- create the tables using the queries in schema.sql (src/main/resources/schema.sql)
+
+## To generate the model classes
+- make sure `openapi-generator-maven-plugin` and `maven-resources-plugin` plugins are uncommented in pom.xml
+- run command `mvn generate-sources` (models classes as per the API Specification will be generated and copied to `/src/main/java/com/globant/tc/scooter/accounts/model`)
+
+## Steps to run AccountsApplication
+- Update database credentials in application.properties (src/main/resources/application.properties) as per your own.
+  - spring.datasource.url=jdbc:mysql://<mysql-server-url>:<mysql-server-port>/accounts
+  - spring.datasource.username=`<username>`
+  - spring.datasource.password=`<password>`
+- For using Mock implementations of external services update following in application.properties.
+  - Set `isUserServiceEnabled` and `isMercadoPagoServiceEnabled` to false.
+- For connecting to external services update following in application.properties.
+  - Set `isUserServiceEnabled` and `isMercadoPagoServiceEnabled` to true
+  - Update `service.user.url=<user-service-endpoint>` and `service.mercadoPago.url=<mercadopago-endpoint>` as per service endpoints 
+- If using IDE
+  - Run the main method from AccountsApplication.java
+- For running without IDE
+  - run command `mvn clean install` in the project-directory. `scooter-accounts-1.0-SNAPSHOT.jar` will be generated on success.
+  - run command `java -jar target\scooter-accounts-1.0-SNAPSHOT.jar`
+
 ## Contact
 
 In case you might have questions, drop us a line to <tcloud.research@gmail.com>. Because we are executing this challenge with several developers please add all the details that you need in order to identify you and the question context. Thanks!

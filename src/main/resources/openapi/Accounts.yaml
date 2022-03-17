@@ -15,21 +15,13 @@ paths:
         content:
           application/json:
             schema:
-
-              type: object
-              properties:
-                userId:
-                  type: integer
-                  format: int32
-                account:
-                  type: 'Account'
-                  format: '#/components/schemas/Account'
-
+              $ref: '#/components/schemas/CreateAccount'
       responses:
         '200':
-          description: Operation success
-        503:
+          $ref: '#/components/schemas/AccountResponse'
+        '503':
           $ref: '#/components/schemas/Error'
+
   /addCreditsToAccount:
     post:
       summary: Add Credits To Account.
@@ -40,17 +32,13 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                accountId:
-                  type: integer
-                  format: int32
-                credits:
-                  type: number
-                  format: double
+              $ref: '#/components/schemas/AddCredits'
       responses:
         '200': # status code
           description: Operation success
+        '404':
+          $ref: '#/components/responses/NotFound'
+
   /associateUserToAccount:
     post:
       summary: Associate User With An Account
@@ -60,17 +48,13 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                accountId:
-                  type: integer
-                  format: int32
-                userId:
-                  type: integer
-                  format: int32
+              $ref: '#/components/schemas/AssociateUser'
       responses:
         '200':
-          description: Operation success
+          description: Operation success'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
   /linkAccountToMercadoPago:
     post:
       summary: Link account to mercado pago
@@ -79,17 +63,12 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                accountId:
-                  type: integer
-                  format: int32
-                mercadoPagoId:
-                  type: integer
-                  format: int32
+              $ref: '#/components/schemas/LinkAccountToMercadoPago'
       responses:
         '200':
           description: Operation success
+        '404':
+          $ref: '#/components/responses/NotFound'
   /buyCreditsMercadoPago:
     post:
       summary: Buy credits in Mercado Pago
@@ -98,17 +77,12 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                accountId:
-                  type: integer
-                  format: int32
-                credits:
-                  type: number
-                  format: double
+              $ref: '#/components/schemas/BuyCreditsMercadoPago'
       responses:
         '200':
           description: Operation success
+        '404':
+          $ref: '#/components/responses/NotFound'
 components:
   schemas:
     Error:
@@ -126,9 +100,79 @@ components:
       type: object
       properties:
         balance:
-          type: double
+          type: number
+          format: double
         active:
           type: boolean
+    CreateAccount:
+      type: object
+      required:
+        - userId
+        - account
+      properties:
+        userId:
+          type: integer
+          format: int32
+        account:
+          $ref: '#/components/schemas/Account'
+    AddCredits:
+      type: object
+      required:
+        - accountId
+        - credits
+      properties:
+        accountId:
+          type: integer
+          format: int32
+        credits:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+    AssociateUser:
+      type: object
+      required:
+        - userId
+        - accountId
+      properties:
+        accountId:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int32
+    LinkAccountToMercadoPago:
+      type: object
+      required:
+        - accountId
+        - mercadoPagoId
+      properties:
+        accountId:
+          type: integer
+          format: int32
+        mercadoPagoId:
+          type: integer
+          format: int32
+    BuyCreditsMercadoPago:
+      type: object
+      required:
+        - accountId
+        - credits
+      properties:
+        accountId:
+          type: integer
+          format: int32
+        credits:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+    AccountResponse:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int32
   responses:
     Error:
       description: Error accessing the service consistent with http status code
@@ -148,3 +192,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    AccountResponse:
+      description: Create account Success response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountResponse'

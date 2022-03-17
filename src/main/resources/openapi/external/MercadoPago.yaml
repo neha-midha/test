@@ -35,16 +35,20 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                mercadoPagoAccountId:
-                  type: integer
-                  format: int32
-                credits:
-                  type: number
-                  format: double
+              $ref: '#/components/schemas/BuyCredits'
       responses:
         '200':
           description: Operation success
         '404':
           description: Account not found
+components:
+  schemas:
+    BuyCredits:
+      type: object
+      properties:
+        mercadoPagoAccountId:
+          type: integer
+          format: int32
+        credits:
+          type: number
+          format: double
